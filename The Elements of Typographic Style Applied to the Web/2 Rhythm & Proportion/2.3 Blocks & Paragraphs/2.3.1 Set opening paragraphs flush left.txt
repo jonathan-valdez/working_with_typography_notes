@@ -1,0 +1,12 @@
+2.3.1 Set opening paragraphs flush left
+
+“The function of a paragraph indent is to mark a pause, setting the paragraph apart from what precedes it. If a paragraph is preceded by a title or subhead, the indent is superfluous and can therefore be omitted.”
+
+Paragraphs, and other block level elements, are indented using the text-indent property.
+To ensure a paragraph is set flush left, the text-indent should be set to zero:
+
+p {
+  text-indent: 0;
+}
+
+This rule is rarely necessary, however, because CSS specifies that the default initial value for text-indent should be 0.

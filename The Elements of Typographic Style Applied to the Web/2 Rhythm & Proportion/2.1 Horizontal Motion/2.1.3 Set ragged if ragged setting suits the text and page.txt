@@ -1,0 +1,49 @@
+2.1.3 Set ragged if ragged setting suits the text and page
+
+“In justified text, there is always a trade-off between evenness of word spacing and frequency of hyphenation.
+
+Narrow measures – which prevent good justification – are commonly used when the text is set in multiple columns.
+Setting ragged right under these conditions will lighten the page and decrease its stiffness.
+
+Many unserifed faces look best when set ragged no matter what the length of the measure.
+And mono-spaced fonts, which are common on typewriters, always look better set ragged.
+
+Setting text justified or ragged is accomplished in CSS through the text-align property, as follows:
+
+p {
+  text-align: left; /* ragged right */
+}
+
+p {
+  text-align: right; /* ragged left */
+}
+
+p {
+  text-align: justify;
+}
+
+Effective justification of text can only be achieved if long words are hyphenated.
+HTML and CSS 2 do not have any provision for automatic hyphenation and current Web browsers support, even for manual hyphenation, is poor.
+So don’t justify text on the web.
+
+Future considerations
+
+CSS3 provides further refinement of justification within the Text Module.
+
+For European languages, the text-justify property provides two justification options: inter-word and inter-character.
+
+Setting inter-word selects the simplest and fastest full justification behaviour, which spreads the text evenly across the line by increasing the width of the space between words only.
+
+No expansion or compression occurs within the words, i.e. no additional letter spacing is created.
+
+Setting inter-character selects the justification behaviour in which both inter-word and inter-letter spacing can be expanded or reduced to spread the text across the whole line.
+This is the significantly slower and more sophisticated type of the full justify behaviour preferred in newspaper and magazines.
+Typically, compression is tried first. If unsuccessful, expansion occurs: inter-word spaces are expanded up to a threshold, and finally inter-letter expansion is performed. For example:
+
+p {
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+CSS3 also provides last line alignment with the text-align-last property. Normally the last line in a paragraph of justified text would not be justified, however if text-align-last is set to justify then the last line will be also spread evenly across the line, although in most cases this would be highly undesirable from a typographical perspective.
+A potentially more useful purpose for text-align-last, at least for display text, is to set it to size. With size selected, the line content is scaled to fit on the line, so a line with fewer characters will be displayed in a larger font.

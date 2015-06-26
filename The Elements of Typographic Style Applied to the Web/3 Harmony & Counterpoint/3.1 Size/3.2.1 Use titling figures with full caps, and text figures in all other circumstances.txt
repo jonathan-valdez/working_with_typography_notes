@@ -1,0 +1,16 @@
+3.2.1 Use titling figures with full caps, and text figures in all other circumstances
+
+“When arabic numerals joined the roman alphabet, they too were given both lowercase and uppercase forms. Typographers call the former text figures, hanging figures, lowercase figures, or old-style figures (OSF for short) and make a point of using them whenever the surrounding text is set in lowercase letters or small caps. The alternative forms are called titling figures, ranging figures or lining figures, because they range or align with the upper case.
+[…]
+[Text figures] are basic parts of typographic speech, and they are a sign that dollars are not really twice as important as ideas, and numbers are not afraid to consort on an equal footing with words. […] However common it may be, the use of titling figures in running text is illiterate: it spurns the truth of letters.”
+Many core web fonts (indeed most digital fonts) ship with only one case of figures: Arial, Comic Sans, Helvetica, Tahoma, Times, Times New Roman, Trebuchet and Verdana all ship with titling figures only. Georgia is the sole holder of text figures (but lacks titling figures).
+Microsoft’s new ‘C’ fonts however, are very strong with respect to their numerals. All six typefaces (including the fixed-width Consolas) have both titling and text figures included in the base fonts. Further, three of the fonts default to titling figures (Calibri, Cambria, and Consolas), the other three to text figures (Candara, Constantia, and Corbel). Constantia and Corbel even include small variants of their lining figures for use with text set in small capitals.
+Despite the bright hope for the future brought by Microsoft’s ‘C’ fonts, CSS currently makes no provision for the control of numeral case, this means the default figures will always be used, regardless of context.
+The Future
+
+The CSS3 fonts module is still a working draft, but is being actively revised. The current editor’s draft includes a proposal for supporting specification of lining or old-style numbers through the font-variant-numeric property.
+For example, one could specify old-style figures using the oldstyle-nums value as follows:
+p {
+  font-variant-numeric: oldstyle-nums;
+}
+To specify titling figures, one would use a value of lining-nums.

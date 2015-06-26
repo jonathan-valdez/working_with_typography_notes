@@ -1,0 +1,15 @@
+2.1.5 Add little or no space within strings of initials
+
+“Names such as W.B. Yeats and J.C.L. Prillwitz need hair spaces, thin spaces or no spaces at all after the intermediary periods [full stops].
+A normal word space follows the last period in the string.”
+
+Hair spaces and thin spaces are two of the many space characters available in Unicode.
+
+Even if the character itself isn’t included in the current font, Unicode-aware browsers will display a good approximation.
+Here’s how to use hair spaces and thin spaces, respectively:
+
+W.&#8202;B. Yeats
+J.&#8201;C.&#8201;L. Prillwitz
+
+Which renders as W. B. Yeats and J. C. L. Prillwitz.
+Unfortunately some browsers which are less Unicode-aware will show square placeholder symbols instead of the required spaces, so until support improves, no space at all is probably the way to go in this instance.

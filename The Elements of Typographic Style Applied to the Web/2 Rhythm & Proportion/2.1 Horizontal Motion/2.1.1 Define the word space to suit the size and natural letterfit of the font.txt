@@ -1,0 +1,53 @@
+The Elements of Typgraphic Applied to the Web
+
+Give full typographical attention even to incidental details.
+
+2.1.1 Define the word space to suit the size and natural letterfit of the font
+
+In either case the size of the ideal word space varies from one circumstance to another, depending on factors such as letterfit, type color, and size.
+
+A loosely fitted or bold face will need a larger interval between the words. At larger sizes, when letterfit is tightened, the spacing of words can be tightened as well.”
+
+In CSS, word space is set with the word-spacing property which has a default value of normal.
+
+The default word space is equivalent to approximately 0.25 em, although the exact value will depend on information encoded within the digital font file.
+
+To change the word spacing, you should specify a length in ems.
+This length is added to the existing word space; that is to say word-spacing does not set the actual space between words, it sets an increment to the existing spacing.
+
+p {
+  word-spacing: 0.25em;
+}
+h1 {
+  word-spacing: -0.125em;
+}
+
+
+While in theory you could specify word-spacing in pixels or any other allowable unit of length, it is important to specify word-spacing in ems as that is the only way to guarantee the word space changes proportionately to the text size (when readers change their default text size, for example).
+
+An explanation of ems
+
+Ems are so-called because they are thought to approximate the size of an uppercase letter M (and so are pronounced emm), although 1 em is actually significantly larger than this.
+
+Bringhurst describes the em thus:
+
+[t]he em is a sliding measure.
+One em is a distance equal to the type size. In 6 point type, an em is 6 points; in 12 point type an em is 12 points and in 60 point type an em is 60 points. Thus a one em space is proportionately the same in any size.
+
+To illustrate this principle in terms of CSS, consider these styles:
+#box1 {
+  font-size: 12px;
+  width: 1em;
+  height: 1em;
+  border: 1px solid black;
+}
+
+#box2 {
+  font-size: 60px;
+  width: 1em;
+  height: 1em;
+  border: 1px solid black;
+}
+
+Note that both boxes have a height and width of 1 em but because they have different font sizes, one box is bigger than the other.
+Box 1 has a font-size of 12 px so its width and height is also 12 px; similarly the text of box 2 is set to 60 px and so its width and height are also 60 px.

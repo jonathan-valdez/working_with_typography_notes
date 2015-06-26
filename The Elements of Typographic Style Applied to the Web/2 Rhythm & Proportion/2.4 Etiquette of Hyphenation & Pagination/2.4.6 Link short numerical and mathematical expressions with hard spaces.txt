@@ -1,0 +1,10 @@
+2.4.6 Link short numerical and mathematical expressions with hard spaces
+
+Hard spaces are useful for preventing line-breaks within phrases such as 6.2 mm, 3 in., 4 × 4, or in phrases like page 3 and chapter 5.”
+In HTML the hard space character is known as a non-breaking space and is inserted using the entity &nbsp;, for example:
+1&nbsp;inch is equivalent to 2.54&nbsp;cm.
+It should not really be expected of authors to type &nbsp; everytime a non-breaking space is required. This is a job that, to some degree, can be performed automatically by a content management system. To demonstrate this by way of simple PHP example, a regular expression function could automatically insert non-breaking spaces as follows:
+$search = '/([0-9]) ([a-zA-Z])/';
+$replace = '$1&nbsp;$2';
+$text = preg_replace($search,$replace,$text);
+This function looks for sequences of a number followed by a space followed by a letter and replaces the space with a non-breaking space. This would deal with instances such as 2.54 cm. For phrases like chapter 5 it would be better to create a set of watch-words rather than attaching every number to a preceding string. Additionally rules would need to be created to handle common mathematical operators as in 4 × 4.

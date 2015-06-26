@@ -1,0 +1,16 @@
+2.4.3 Avoid more than three consecutive hyphenated lines
+
+This guideline can be achieved easily when hyphenating manually. See §2.4.1 for more information on manual hypenation.
+
+The Future
+
+Hyphenation will be included in the CSS 3 Text module, but at the time of writing, the definition of the hyphenation feature is still very much up-in-the-air.
+Currently the CSS 3 Paged Media module has more details of the hyphenation properties originally proposed, and among these is the hyphenate-lines property which specifies the maximum number of successive hyphenated lines in an element.
+For example:
+
+p {
+  hyphenate: auto;
+  hyphenate-lines: 3;
+}
+
+A value of none means that there is no limit to the number of successive hyphenated lines.

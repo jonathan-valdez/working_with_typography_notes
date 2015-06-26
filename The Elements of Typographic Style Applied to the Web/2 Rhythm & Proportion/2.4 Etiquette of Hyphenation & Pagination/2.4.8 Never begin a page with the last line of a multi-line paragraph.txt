@@ -1,0 +1,28 @@
+2.4.8 Never begin a page with the last line of a multi-line paragraph
+
+“The stub-ends left when paragraphs end on the first line of a page are called widows. They have a past but not a future, and they look foreshortened and forlorn.”
+Comprehensive control for page breaks was introduced in CSS 2, however browser support is currently limited to Opera 9. The only paging properties supported by Internet Explorer 7, Safari 3 and Firefox 2 are page-break-before and page-break-after (this is also true of IE8 beta and Firefox 3 beta at time of writing).
+The page-break-before and page-break-after properties enable you to say that a page break should occur before or after the specified element. The following example starts a new page everytime an h1 heading is encountered and after every .section block.
+h1 {
+  page-break-before: always;
+}
+.section {
+  page-break-after: always;
+}
+If you know (or can calculate) when a paragraph will be split over two pages, you could achieve some crude widow and orphan control by giving that paragraph a relevant class and forcing a page break before it, for example:
+.dontsplit {
+  page-break-before: always;
+}
+In reality that is not a likely situation and would always be problematic if readers set their browsers to print out different size text, or use different size paper, to your assumptions.
+The Future
+
+In essence widow and orphan control is not currently possible for the vast majority of people. However CSS 2 support will increase with time so if you are writing a print style sheet it is worth considering the properties already specified in CSS 2.
+A relative of the page-break-after property mentioned earlier is page-break-inside which stops elements spanning pages. For example you may like to apply this rule to all headings:
+h1, h2, h3, h4, h5, h6 {
+  page-break-inside: never;
+}
+Precise widow and orphan control is also available through the widows and orphans properties. The value of the property is the minimum number of lines which is allowed to be widowed or orphaned. For example you can prevent less than four lines of a paragraph being left behind or printed on a new page using the following:
+p {
+  widows: 4;
+  orphans: 4;
+}

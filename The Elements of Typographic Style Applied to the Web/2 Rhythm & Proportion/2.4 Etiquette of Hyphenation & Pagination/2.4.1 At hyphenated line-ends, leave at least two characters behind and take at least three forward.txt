@@ -1,0 +1,43 @@
+2.4.1 At hyphenated line-ends, leave at least two characters behind and take at least three forward
+
+Fi-nally is a conventionally acceptable line-end hyphenation, but final-ly is not, because it takes too little of the word ahead to the next line.”
+
+Unlike much word processing and page-layout software, there is not yet any automatic hyphenation built into web browsers.
+The next best method is to insert hyphen characters manually.
+
+Liquid layouts and resizable text mean that, on the Web, one never knows which word will be at the end of a line.
+To deal with this in HTML, there are two types of hyphens: the plain hyphen and the soft hyphen.
+Browsers treat the plain hyphen as just another character.
+The soft hyphen tells the browser where a word break can occur, and should only be displayed when a word is being broken across two lines.
+
+The soft hyphen has existed since HTML 3.2, and is explained well in the HTML 4.0 recommendation.
+Its entity code is &shy; or &#173; and is used as follows:
+
+anti&shy;dis&shy;est&shy;ab&shy;lish&shy;ment&shy;arian&shy;ism
+
+Which renders in your browser as: anti­dis­est­ab­lish­ment­arian­ism anti­dis­est­ab­lish­ment­arian­ism anti­dis­est­ab­lish­ment­arian­ism.
+
+By definition, a soft hyphen should only appear when the word is wrapped.
+Browser support for this was patchy, but the situation has improved recently.
+Internet Explorer 6 treats the soft hyphen correctly, as do Opera, Safari 2 and Firefox 3.
+However older Gecko-based browsers such as Firefox 2 hide all soft hyphens and do not perform any hyphenation.
+By contrast Safari 1 displays all soft hyphens regardless of whether the word is wrapping.
+
+The Future
+
+Until recently, the CSS 3 Text module contained the hyphenate property which could be set to auto or none.
+This property introduced the concept of automatic hyphenation to browsers, and would require that the web browser has a hyphenation dictionary for the language of the text being hyphenated.
+For example:
+
+p {
+  hyphenate: auto;
+}
+
+At the time of writing, the latest Working Draft of March 2007, states that the definition of the hyphenation feature is still very much up-in-the-air, but it’s likely that advanced hyphenation controls will be introduced.
+The CSS 3 Paged Media module has more details of the hyphenation properties originally proposed, among these are the hyphenate-before and hyphenate-after properties which specify the minimum number of characters in a hyphenated word before and after the hyphenation character.
+For example:
+
+p {
+  hyphenate-before: 2;
+  hyphenate-after: 3;
+}

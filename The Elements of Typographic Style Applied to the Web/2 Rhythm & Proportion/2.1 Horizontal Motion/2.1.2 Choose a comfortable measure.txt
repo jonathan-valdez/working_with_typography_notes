@@ -1,0 +1,40 @@
+2.1.2 Choose a comfortable measure
+
+“Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page set in a serifed text face in a text size. The 66-character line (counting both letters and spaces) is widely regarded as ideal. For multiple column work, a better average is 40 to 50 characters.”
+
+The measure is the number of characters in a single line of a column of text.
+HTML doesn’t have a concept of columns per se, instead text is held within boxes.
+In CSS the width of a box is set using the width property with any unit of length, for example:
+
+#col1 {
+  width: 400px;
+}
+
+#col2 {
+  width: 50%;
+}
+
+#col3 {
+  width:33em;
+}
+
+In the preceding example, column 1 has a fixed width: it has been set to 400 px wide. With text rendering at 12 px this would result in a measure of approximately 66 characters per line.
+
+If your reader increases the text size to 16 px then the measure reduces to 50 characters per line. Thus when the text size is changed, so the measure changes.
+
+Column 2 has a liquid width: it has been set to 50% wide.
+Assuming your reader is browsing with a window 1000 px wide, the box would be rendered as 500 px wide, resulting in a measure of about 83 characters per line.
+A measure of 83 may be a little too wide for your reader, but because the box is liquid, your reader could reduce their window size to 800 px, thus narrowing the box to 400 px and creating a more comfortable measure of 66 characters per line.
+Column 3 has an elastic width: it has been set to 33 em wide. On average one character takes up 0.5 em so this box will have a measure of 66 characters per line. If your reader increases the text size, the width of box will increase accordingly and so the measure remains at 66 regardless of the text size.
+
+From a typographical perspective, the most appropriate method is to set box width in ems (elastic layout) as it ensures the measure is always set to the typographer’s specification.
+Setting box width as a percentage (liquid layout) gives the typographer approximate control over measure but also allows the reader to adjust the layout to suit his or her comfort.
+This website has been designed with liquid layout to afford readers this control.
+
+Relinquishing such control makes some designers quake in their boots, but the beauty and advantage of the Web as a medium is that readers are able to adjust their reading environment to suit their own needs.
+This is a concept that should be acknowledged & embraced, and built into website designs from the ground up.
+
+
+
+
+width divided by font-size multiplied by 2.

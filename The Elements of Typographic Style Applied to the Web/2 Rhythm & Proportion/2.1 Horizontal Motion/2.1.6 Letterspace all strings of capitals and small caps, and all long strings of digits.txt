@@ -1,0 +1,14 @@
+2.1.6 Letterspace all strings of capitals and small caps, and all long strings of digits
+
+“Acronyms such as CIA and PLO are frequent in some texts. So are abbreviations such as CE and BCE or AD and BC.
+The normal value for letterspacing these sequences of small or full caps is 5% to 10% of the type size.
+
+Many typographers like to letterspace all strings of numbers as well.
+Spacing is essential for rapid reading of long, fundamentally meaningless strings such as serial numbers, and is helpful even for shorter strings such as phone numbers and dates.
+
+Letter spacing in CSS is achieved with the aptly named letter-spacing property.
+To letter space abbreviations at 10% of the type size you could wrap the abbreviations in <abbr> tags and apply a CSS rule such as:
+
+abbr {
+  letter-spacing: 0.1em;
+}

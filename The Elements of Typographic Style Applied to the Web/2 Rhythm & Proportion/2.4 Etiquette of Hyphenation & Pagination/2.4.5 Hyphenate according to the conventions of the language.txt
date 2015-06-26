@@ -1,0 +1,26 @@
+2.4.5 Hyphenate according to the conventions of the language
+
+“In English one hyphenates cab-ri-o-let but in French ca-brio-let.
+The conventions of the individual language should, ideally, be followed even for single foreign words or brief quotations.”
+
+This guideline can be achieved on the Web when hyphenating manually. See §2.4.1 for more information on manual hyphenation.
+
+The Future
+
+Hyphenation will be included in the CSS 3 Text module, but at the time of writing, the definition of the hyphenation feature is still very much up-in-the-air.
+Currently the CSS 3 Paged Media module has more details of the hyphenation properties originally proposed.
+The choice of which hyphenation dictionary to use should be automatic depending on the natural language of the document.
+The document language should ordinarily be specified in the HTTP header, but can also be identified with markup:
+
+<html lang="en"> ... </html>
+
+The CSS 3 Text module may also introduce a hyphenate-dictionary property to specify which hyphenation dictionary to use. For example:
+
+html[lang=en] {
+  hyphenate-dictionary:url(hyph_en.dic);
+}
+html[lang=fr] {
+  hyphenate-dictionary:url(hyph_fr.dic);
+}
+
+A value of auto would indicate that the built-in dictionaries, if any, should be used.

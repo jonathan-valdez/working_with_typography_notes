@@ -1,0 +1,58 @@
+2.2.1 Choose a basic leading that suits the typeface, text and measure
+
+Vertical space is metered in a different way [to horizontal space].
+You must choose not only the overall measure – the depth of the column or page – but also a basic rhythmical unit.
+This unit is the leading, which is the distance from one baseline to the next.”
+
+Leading (pronounced “ledding”) is so called because, in mechanical presses,
+strips of lead are placed between lines of type to space the lines apart.
+Leading is achieved in CSS through the line-height property. For example 12 point text can be given 3 points of lead in the following manner:
+
+p {
+  font-size: 12pt;
+  line-height: 15pt;
+}
+
+However that example is bad as line-height should never be applied using absolute units such as points or pixels.
+In the prior example, when text is resized in a browser, the font-size increases (to 18 pt for example) but the line-height may remain at 15 pt.
+So instead of the lines being spaced apart, they would actually overlap.
+
+A better approach is to make use of a unique characteristic of the line-height property:
+it is the only CSS property for which non-zero numeric values are allowed without units.
+The preceding example could also be coded as:
+
+p {
+  font-size: 12pt;
+  line-height: 1.25;
+}
+
+In this example the value of line-height is a multiplier: 1.25 x 12 = 15 pt.
+This is a far more reliable method as the line-height (the distance between baselines) will always be proportional to the text size.
+Line height can be incorporated into the font property using a shorthand familiar to typographers:
+
+p {
+  font: 12pt/1.25 "Minion Pro", "Minion Web", serif;
+}
+
+It should be noted that some browsers add a little leading by default: Safari and Internet Explorers for example;
+whereas others, such as Camino and Firefox, do not.
+Text on the web almost always benefits from an increase in line height, and figures upwards of 1.3 are common
+(this page has a line-height of 1.5 for example).
+Unlike in mechanical presses, where one line of lead is added below the text,
+the spacing added on the Web is divided equally above and below the text.
+To illustrate this the following example has a line-height of 3 and shows the text sat midway between two borders:
+
+line-height spacing is added equally above and below the text
+
+Negative leading, in other words a line-height value of less than 1,
+can be used on short pieces of text provided care is taken to ensure ascenders and descenders do not collide.
+For example:
+
+.example {
+  font-size: 1.5em;
+  line-height: 0.85;
+  text-indent: -0.5em;
+}
+
+this is an example
+of negative leading

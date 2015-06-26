@@ -1,0 +1,37 @@
+2.1.8 Kern consistently and modestly or not at all
+
+Kerning – altering the space between selected pairs of letters –
+can increase consistency of spacing in a word like Washington or Toronto, where the combinations Wa and To are kerned.”
+
+At present there is no mechanism within HTML or CSS that specifically enables kerning.
+However text on the Web does not generally need manual kerning, as all digital fonts have kerning tables built-in.
+These tables define which letter pairs need adjusting and by how much, and are usually adhered to by operating systems.
+The only time manual kerning may prove necessary is with larger text such as that in headings, in particular when numbers, italics or punctuation are involved.
+
+It is also important to bear in mind that letter pairs in one font of your font-family list may need kerning whereas in another font they do not.
+In this case it is advisable not to kern, as too much kerning is almost always worse than none at all.
+
+Where you do wish to kern letter pairs, you must insert a neutral inline element, such as span and apply the letter-spacing property. For example:
+
+<span class="kern">W</span>ashington
+and <span class="kern">T</span>oronto
+
+.kern { letter-spacing: -0.1em; }
+
+Which should render as:
+
+Washington and Toronto
+
+Notice that the span was applied around the first letter of the pair, not around both letters. This is because the letter-spacing property adds or removes space after each letter.
+Notice also that the letter-spacing is specified in ems to ensure that the amount of kerning is applied in proportion to the text size.
+
+As with letterspacing strings of capitals, adding a span every time you need to kern a letter pair could become tedious and so regular expressions could come to the rescue once more.
+This PHP function uses a regular expression to replace insert a span into any string of ‘To’ or ‘Wa’:
+
+$search = '/(T)(o)|(W)(a)/';
+$replace = '<span class="kern">$1$3</span>$2$4';
+$text = preg_replace($search,$replace,$text);
+
+The Future
+
+The CSS3 Text Module may contain the kerning-mode and kerning-pair-threshold properties to aid control over kerning, although these properties have yet to be fully defined.
